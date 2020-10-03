@@ -47,7 +47,7 @@
 | phone_number     | string        | null: false                                  |
 | order            | references    | null: false, foreign_key: true               |
 
-- belongs_to :buyer
+- belongs_to :orders
 
 
 ## orders

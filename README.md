@@ -1,3 +1,4 @@
+
 # テーブル設計
 
 ## users
@@ -59,4 +60,3 @@
 
 - belongs_to :user
 - has_one :buyer
-- belongs_to :item

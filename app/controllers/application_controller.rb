@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-before_action :config_permitted_parameters, if: :devise_controller?
+  before_action :config_permitted_parameters, if: :devise_controller?
 
 
   private

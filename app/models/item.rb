@@ -6,6 +6,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipment_day
   belongs_to_active_hash :shipment_source
 
+  validates :image, presence: true
   validates :name, presence: true
   validates :text, presence: true
   validates :category_id, presence: true, numericality: { other_than: 1 }

@@ -10,4 +10,4 @@ function calculation (){
   });
 }
 
-window.addEventListener('load', calculation);
+window.addEventListener('input', calculation);

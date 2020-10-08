@@ -6,16 +6,17 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipment_day
   belongs_to_active_hash :shipment_source
 
-  validates :image, presence: true
-  validates :name, presence: true
-  validates :text, presence: true
-  validates :category_id, presence: true, numericality: { other_than: 1 }
-  validates :condition_id, presence: true, numericality: { other_than: 1 }
-  validates :postage_id, presence: true, numericality: { other_than: 1 }
-  validates :shipment_source_id, presence: true, numericality: { other_than: 1 }
-  validates :shipment_day_id, presence: true, numericality: { other_than: 1 }
-  validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
-
+  with_options presence: true do
+    validates :image
+    validates :name
+    validates :text
+    validates :category_id, numericality: { other_than: 1 }
+    validates :condition_id, numericality: { other_than: 1 }
+    validates :postage_id, numericality: { other_than: 1 }
+    validates :shipment_source_id, numericality: { other_than: 1 }
+    validates :shipment_day_id, numericality: { other_than: 1 }
+    validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
+  end
   belongs_to :user
   has_one_attached :image
 end

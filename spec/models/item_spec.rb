@@ -29,31 +29,31 @@ RSpec.describe Item, type: :model do
     end
 
     it 'categoryが選択されていないと登録できない' do
-      @item.category_id = '1'
+      @item.category_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include('Category must be other than 1')
     end
 
     it 'conditionが選択されていないと登録できない' do
-      @item.condition_id = '1'
+      @item.condition_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include('Condition must be other than 1')
     end
 
     it 'postageが選択されていないと登録できない' do
-      @item.postage_id = '1'
+      @item.postage_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include('Postage must be other than 1')
     end
 
     it 'shipment_sourceが選択されていないと登録できない' do
-      @item.shipment_source_id = '1'
+      @item.shipment_source_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include('Shipment source must be other than 1')
     end
 
     it 'shipment_dayが選択されていないと登録できない' do
-      @item.shipment_day_id = '1'
+      @item.shipment_day_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include('Shipment day must be other than 1')
     end
@@ -64,12 +64,12 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Price can't be blank")
     end
     it 'priceの値が300より小さいと登録できない' do
-      @item.price = '299'
+      @item.price = 299
       @item.valid?
       expect(@item.errors.full_messages).to include('Price must be greater than or equal to 300')
     end
     it 'priceの値が9,999,999より大きいと登録できない' do
-      @item.price = '10000000'
+      @item.price = 10000000
       @item.valid?
       expect(@item.errors.full_messages).to include('Price must be less than or equal to 9999999')
     end

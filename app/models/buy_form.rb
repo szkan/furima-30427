@@ -15,5 +15,4 @@ class BuyForm
     order = Order.create(user_id: user_id, item_id: item_id)
     Buyer.create(post_code: post_code, prefecture_id: prefecture_id, city: city, address: address, building_name: building_name, phone_number: phone_number, order_id: order.id)
   end
-
 end

@@ -26,15 +26,15 @@ RSpec.describe BuyForm, type: :model do
       expect(@buy_form.errors.full_messages).to include("Post code can't be blank")
     end
     it 'post_codeにハイフンがないと購入出来ない' do
-      @buy_form.post_code = 1234567
+      @buy_form.post_code = 1_234_567
       @buy_form.valid?
-      expect(@buy_form.errors.full_messages).to include("Post code is invalid")
+      expect(@buy_form.errors.full_messages).to include('Post code is invalid')
     end
 
     it 'prefecture_idが選択されていないと購入出来ない' do
       @buy_form.prefecture_id = 1
       @buy_form.valid?
-      expect(@buy_form.errors.full_messages).to include("Prefecture must be other than 1")
+      expect(@buy_form.errors.full_messages).to include('Prefecture must be other than 1')
     end
 
     it 'cityが空だと購入出来ない' do
@@ -55,19 +55,19 @@ RSpec.describe BuyForm, type: :model do
       expect(@buy_form.errors.full_messages).to include("Phone number can't be blank")
     end
     it 'phone_numberが半角数字以外だと購入できない' do
-      @buy_form.phone_number = "１２３４５６７８９"
+      @buy_form.phone_number = '１２３４５６７８９'
       @buy_form.valid?
-      expect(@buy_form.errors.full_messages).to include("Phone number is invalid")
+      expect(@buy_form.errors.full_messages).to include('Phone number is invalid')
     end
     it 'phone_numberが９桁以下だと購入できない' do
-      @buy_form.phone_number = 123456789
+      @buy_form.phone_number = 123_456_789
       @buy_form.valid?
-      expect(@buy_form.errors.full_messages).to include("Phone number is invalid")
+      expect(@buy_form.errors.full_messages).to include('Phone number is invalid')
     end
     it 'phone_numberが１２桁以上だと購入できない' do
-      @buy_form.phone_number = 123456789112
+      @buy_form.phone_number = 123_456_789_112
       @buy_form.valid?
-      expect(@buy_form.errors.full_messages).to include("Phone number is invalid")
+      expect(@buy_form.errors.full_messages).to include('Phone number is invalid')
     end
   end
 end
